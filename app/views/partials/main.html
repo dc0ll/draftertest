@@ -1,0 +1,133 @@
+<div class="header">
+  <a href="/" class="header-link"><img src="/images/logo.png" height=24 width=334 alt=""></a>
+  <div class="login">Hello, <input type="text" ng-model="username" class="username" edit-inline></div>
+</div>
+
+<div class="jumbotron">
+  <div class="menu" ng-class="{invis: !firstLogin}">
+    <form class="first-login" ng-submit="login()">
+      <span class="message">Hello! What is your name?</span>
+      <input class="form-control input-md login-input" type="text" ng-model="username" placeholder="Bane" autofocus>
+      <input type="submit" class="button button-green button-large" value="Enter!">
+    </form>
+  </div>
+
+  <div class="menu" ng-class="{invis: currentDraft || firstLogin}">
+    <div class="creating-draft" ng-class="{invis: creatingDraft}">
+      <h3 class="content-header">Active Drafts</h3>
+      <div class="rule"></div>
+      <div class="message-container" ng-hide="drafts">
+        <span class="message">No active drafts! Why not create one?</span>
+      </div>
+      <div class="drafts" ng-hide="currentDraft">
+        <div class="draft" ng-repeat="draft in drafts" ng-click="joinDraft(draft)">{{draft}}</div>
+      </div>
+      <div class="button button-green button-large" ng-click="startDraftCreation()">Create a Room</div>
+    </div>
+
+
+    <form class="creating-draft" ng-class="{invis: !creatingDraft}" ng-submit="createDraft()">
+      <h3 class="content-header">Create your draft</h3>
+      <div class="rule"></div>
+      <div class="form-row draft-name-row">
+        <label class="form-label" for="RoomName">Room Name</label>
+        <input class="form-control input-md draft-input" id="RoomName" type="text" ng-model="draftCreate" placeholder="AX vs Syn">
+      </div>
+      <div class="form-row">
+        <label class="form-label" for="DraftFormat">Draft Format</label>
+        <br>
+        <div class="draft-format">
+          <input type="radio" ng-model="draftFormat" name="DraftFormat" value="gigantor" checked="checked" id="gigantor">
+          <label for="gigantor">Gigantic Draft</label>
+        </div>
+      </div>
+      <div class="form-row">
+        <input type="checkbox" id="useTimer" ng-model="useTimer">
+        <label class="form-label" for="useTimer">Use Timer?</label>
+        <br>
+        <div class="timeConfig" ng-show="useTimer">
+          <label class="form-label" for="timePerTurn">Time per Turn</label>
+          <br>
+          <input id="timePerTurn" type="text" ng-model="timePerTurn" placeholder="60" class="time-input">
+        </div>
+      </div>
+      <div class="coming-soon">
+        <div class="form-row">
+          <input type="checkbox" ng-model="hasPassword" id="draftPassword" >
+          <label class="form-label" for="draftPassword">Room Password?</label>
+          <input type="password" ng-model="draftCreatePassword" ng-show="hasPassword" class="form-control input-md draft-input">
+        </div>
+        <div class="form-row">
+          <input type="checkbox" id="Private" ng-model="isPrivate">
+          <label class="form-label" for="Private">Private Room?</label>
+        </div>
+      </div>
+      <input type="submit" class="button button-green button-large create-button" value="Create!">
+    </form>
+  </div>
+
+  <div class="menu" ng-class="{invis: !currentDraft || firstLogin}">
+    <div ng-show="currentDraft">
+      <h3 class="content-header">{{currentDraft}}</h3>
+      <h4 class="draft-status {{getAllyEnemyStatus(currentTurn)}}">{{displayTeam(currentTurn)}} {{displayPickBan(currentTurn)}}</h4>
+      <h3 class="draft-timer {{displayTimer(currentTurn)}}">{{draftTimer}}</h3>
+
+      <div class="team1">
+        <div class="team-header" ng-show="teamaUser">
+          <div class="leave-team" ng-show="currentTeam === TEAMS.TeamA" ng-click="leaveSeat()"></div>
+          {{teamaUser}}
+        </div>
+        <div class="button button-blue button-large" ng-click="sitTeamA()" ng-hide="teamaUser">Team A</div>
+        <div class="team-hero {{getAllyEnemyStatus(TEAMS.TeamA)}}" ng-repeat="hero in team1">
+          <img class="team-hero-img" width="50" height="50" src="../images/heroes/{{hero.replace(' ','').toLowerCase()}}.png">
+          <div class="team-caption-container">
+            <span class="caption">{{hero}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroes">
+        <div class="grid" source="pool">
+          <div ng-repeat="hero in pool" class="pool-hero" ng-click="handleClick(hero)">
+            <img class="pool-hero-img" width=100 height=100 src="../images/heroes/{{hero.replace(' ','').toLowerCase()}}.png">
+            <div class="caption-container">
+              <span class="caption">{{hero}}</span>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="team2">
+        <div class="team-header" ng-show="teambUser">
+          <div class="leave-team" ng-show="currentTeam === TEAMS.TeamB" ng-click="leaveSeat()"></div>
+          {{teambUser}}
+        </div>
+        <div class="button button-blue button-large" ng-click="sitTeamB()" ng-hide="teambUser">Team B</div>
+        <div class="team-hero {{getAllyEnemyStatus(TEAMS.TeamB)}}" ng-repeat="hero in team2">
+          <img class="team-hero-img" width="50" height="50" src="../images/heroes/{{hero.replace(' ','').toLowerCase()}}.png">
+          <div class="team-caption-container">
+            <span class="caption">{{hero}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pick-footer">
+        <div class="bans-container">
+          <div class="bans">
+            <div class="team-header">Bans</div>
+            <div class="ban-hero-wrapper">
+              <div class="pool-hero" ng-repeat="hero in bans">
+                <img class="pool-hero-img" width=100 height=100 src="../images/heroes/{{hero.replace(' ','').toLowerCase()}}.png">
+                <div class="caption-container">
+                  <span class="caption">{{hero}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="button button-red button-large" ng-click="leaveDraft()">Leave Room</div>
+      </div>
+      
+    </div>
+  </div>
+</div>

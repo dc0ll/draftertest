@@ -1,0 +1,602 @@
+$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+
+@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.invis {
+    opacity: 0 !important;
+    z-index: -99999;
+    visibility: hidden;
+}
+
+/* Space out content a bit */
+body {
+    color: #73a0ae;
+    background-color: #134;
+    background-image: url(http://strife.com/images/ui/background-b.jpg);
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 165px;
+    padding-top: 50px;
+    padding-left: 50px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 2px rgba(195, 224, 255, 0.2);
+    width: 100%;
+    color: rgb(114, 138, 139);
+}
+
+.outer-container {
+    min-height: 100%;
+    position: relative;
+}
+
+.container {
+    padding-top: 20px;
+    padding-bottom: 165px;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    padding-bottom: 15px;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.rule {
+    background: url("https://strife.com/images/ui/radial-gradient-200-peach.png") center -2px no-repeat;
+    -webkit-background-size: 100% 5px;
+    background-size: 100% 5px;
+    height: 3px;
+    margin: 0 auto;
+    opacity: 0.7;
+    position: relative;
+    &:before{
+        background: url("https://strife.com/images/ui/radial-gradient-200-dark.png") center 0 no-repeat;
+        -webkit-background-size: 100% 5px;
+        background-size: 100% 5px;
+        content: ' ';
+        opacity: 0.8;
+        position: absolute;
+        height: 3px;
+        left: 0;
+        top: -3px;
+        width: 100%;
+    }
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+.content-header {
+    font-weight: bold;
+    color: #eee;
+    text-shadow: 1px 1px 3px rgba(255, 255, 150, 0.2);
+    font-size: 30px;
+}
+
+.draft-status {
+    font-size: 20px;
+}
+
+.draft-timer {
+  color: #fa3;
+  margin: 0;
+}
+
+.draft-ally {
+    color: rgb(164, 219, 133);;
+}
+
+.draft-enemy {
+    color: rgb(255, 142, 142);
+}
+
+.first-login {
+    position: absolute;
+    padding: 50px;
+    width: 100%;
+}
+
+.jumbotron {
+    color: rgb(204,237,251);
+    color: rgba(204,237,251,0.8);
+    text-align: center;
+    overflow: auto;
+    background: linear-gradient(180deg, #2b637e, #26566e);
+    background: -webkit-linear-gradient(270deg, #2b637e, #26566e);
+    background: linear-gradient(180deg, #2b637e, #26566e);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 2px 8px rgba(0,0,0,0.2);   
+    min-height: 600px;
+}
+
+.menu {
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.creating-draft {
+    position: absolute;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.message-container {
+    padding: 20px;
+}
+
+@media screen and (min-height: 940px){
+    .jumbotron {
+        min-height: 675px;
+    }
+
+    .message-container {
+        padding: 200px;
+    }
+}
+
+.message {
+    font-size: 21px;
+}
+
+.draft {
+    cursor: pointer;
+    min-width: 80px;
+
+}
+
+.toolbar {
+    margin: 15px;
+}
+
+.team1, .team2 {
+    width: 180px;
+    min-height: 330px;
+    padding: 5px;
+    border-radius: 3px;
+    background: rgba(121, 207, 255, 0.2);
+}
+
+.team1 {
+    float: left;
+}
+
+.team2 {
+    float: right;
+}
+
+.heroes {
+    float: left;
+    width: calc(100% - 360px);
+}
+
+.header {
+    overflow: auto;
+}
+
+.header-link {
+    float: left;
+}
+
+.updates {
+    margin-left: 5px;
+    float: left;
+    &:hover .updates-tooltip {
+        visibility: visible;
+    }
+}
+
+.updates-text {
+    cursor: pointer;
+}
+
+.updates-tooltip {
+    position: absolute;
+    visibility: hidden;
+    background: #bacfda;
+    border-radius: 3px;
+    padding: 5px;
+    color: #173645;
+    z-index: 1;
+    & td {
+        vertical-align: top;
+    }
+}
+
+.emphasis {
+    color: #c00;
+}
+
+.login {
+    float: right;
+    line-height: 24px;
+}
+
+.username {
+    border: none;
+    background: none;
+    cursor: text;
+    color: #73a0ae;
+    &:hover, &:focus {
+        outline: 1px solid rgba(0, 0, 0, 0.2);
+        background: #fff;
+        background: rgba(255, 255, 255, 0.9);
+    }
+}
+
+.logo {
+    float: left;
+    background: url("../images/logo.png") center center no-repeat;
+}
+
+.time-input {
+  text-align: center;
+  width: 3em;
+}
+
+.coming-soon {
+    opacity: 0.3;
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    &:before {
+        content: 'Coming Soon';
+        font-size: 24px;
+    }
+}
+
+input, button {
+    color: #000;
+}
+
+.checkbox {
+    float: left;
+}
+
+.form-row {
+    margin: 15px auto;
+}
+
+.draft-format {
+    display: inline-block;
+    text-align: left;
+}
+
+.create-button {
+    margin-top: 20px;
+}
+
+.draft-input {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-input {
+    min-width: 100px;
+    max-width: 300px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.form-row label {
+    font-weight: normal;
+}
+
+.drafts {
+    margin: 20px;
+}
+
+.draft:hover {
+    color: rgb(204, 237, 251);
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.draft {
+    cursor: pointer;
+    min-width: 250px;
+    font-size: 20px;
+    margin: 10px auto;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    display: table;
+}
+
+.pool-hero {
+    width: 100px;
+    position: relative;
+    margin: 10px auto;
+    opacity: 0.8;
+    transition: opacity 0.5s;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.pool-hero-img {
+    border-radius: 5px;
+}
+
+.caption-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.caption {
+    color: #FFF;
+}
+
+.team-header {
+    font-size: 24px;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.leave-team {
+    height: 15px;
+    width: 15px;
+    display: inline-block;
+    background: url(/images/x.png);
+    background-size: 15px 15px;
+    cursor: pointer;
+    opacity: 0.5;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.team-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 6px 0;
+    background: rgba(4, 56, 150, 0.8);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.34);
+}
+
+.team-hero.draft-ally {
+    background: rgba(37, 107, 37, 0.8);
+}
+
+.team-hero.draft-enemy {
+    background: rgba(133, 18, 18, 0.8);
+}
+
+.team-caption-container {
+    position: initial;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 0;
+}
+
+.team-hero-img {
+    float: left;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.deckgrid .column {
+    float: left;
+}
+
+.deckgrid[deckgrid]::before {
+    /* Specifies that the grid should have a maximum of 4 columns. Each column will have the classes 'column' and 'column-1-4' */
+    content: '2 .column.column-1-2';
+    font-size: 0; /* See https://github.com/akoenig/angular-deckgrid/issues/14#issuecomment-35728861 */
+    visibility: hidden;
+}
+
+.deckgrid .column-1-2 {
+    width: 50%;
+}
+
+@media screen and (min-width: 992px){
+    .deckgrid[deckgrid]::before {
+        content: '4 .column.column-1-4';
+    }
+
+    .deckgrid .column-1-4 {
+        width: 25%;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .deckgrid[deckgrid]::before {
+        content: '5 .column.column-1-5';
+    }
+
+    .deckgrid .column-1-5 {
+        width: 20%;
+    }
+}
+
+.pick-footer {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+
+.bans-container {
+    margin: 0 auto 20px;
+}
+
+.bans {
+    min-height: 164px;
+    min-width: 250px;
+    width: calc(100% - 360px);
+    padding: 5px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.ban-hero-wrapper {
+    display: inline-block;
+}
+
+.bans .pool-hero {
+    float: left;
+    margin: 10px;
+}
+
+/*S2 Button Styles*/
+
+.button {
+    border: 0 none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+    outline: none;
+    text-decoration: none;
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.4);
+    -webkit-transition: background 0.25s;
+    transition: background 0.25s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased
+}
+
+.button.button-xlarge {
+    font-size: 24px;
+    font-size: 2.4rem;
+    font-weight: 800;
+    padding: 14px 24px
+}
+
+.button.button-large {
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding: 10px 20px
+}
+
+.button.button-small {
+    padding: 6px 15px
+}
+
+.button.button-blue {
+    background-color: #24566e;
+    background-image: -webkit-linear-gradient(270deg, rgba(93,137,157,0.33), rgba(0,36,55,0.33));
+    background-image: linear-gradient(180deg, rgba(93,137,157,0.33), rgba(0,36,55,0.33));
+    -webkit-box-shadow: inset 0 2px 4px rgba(255,255,255,0.17),inset 0 1px 0 rgba(255,255,255,0.1),0 2px 4px rgba(0,0,0,0.34);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.17),inset 0 1px 0 rgba(255,255,255,0.1),0 2px 4px rgba(0,0,0,0.34);
+    color: #fff
+}
+
+.button.button-blue:hover,.button.button-blue:focus {
+    background-color: #2a6581
+}
+
+.button.button-blue:active {
+    background-color: #1e475b
+}
+
+.button.button-green {
+    background-color: #6da440;
+    background-image: -webkit-linear-gradient(270deg, rgba(193,242,157,0.33), rgba(23,85,12,0.33));
+    background-image: linear-gradient(180deg, rgba(193,242,157,0.33), rgba(23,85,12,0.33));
+    -webkit-box-shadow: inset 0 2px 4px rgba(255,255,255,0.3),inset 0 1px 0 rgba(255,255,255,0.15),0 2px 4px rgba(0,0,0,0.34);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.3),inset 0 1px 0 rgba(255,255,255,0.15),0 2px 4px rgba(0,0,0,0.34);
+    color: #fff
+}
+
+.button.button-green:hover,.button.button-green:focus {
+    background-color: #7eba4e
+}
+
+.button.button-green:active {
+    background-color: #619239
+}
+
+.button.button-red {
+    background-color: #992e00;
+    background-image: -webkit-linear-gradient(270deg, rgba(238,90,0,0.33), rgba(61,13,0,0.33));
+    background-image: linear-gradient(180deg, rgba(238,90,0,0.33), rgba(61,13,0,0.33));
+    -webkit-box-shadow: inset 0 2px 4px rgba(255,255,255,0.2),inset 0 1px 0 rgba(255,255,255,0.15),0 2px 4px rgba(0,0,0,0.34);
+    box-shadow: inset 0 2px 4px rgba(255,255,255,0.2),inset 0 1px 0 rgba(255,255,255,0.15),0 2px 4px rgba(0,0,0,0.34);
+    color: #fff
+}
+
+.button.button-red:hover,.button.button-red:focus {
+    background-color: #bd3900
+}
+
+.button.button-red:active {
+    background-color: #802600
+}
+
+.button.button-flat {
+    background: rgba(116,131,139,0.6);
+    border-radius: 30px;
+    color: #0c242e;
+    font-size: 13.5px;
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    padding: 0 12px 1px 12px;
+    text-shadow: none
+}
+
+.button.button-flat:hover {
+    background: rgba(116,131,139,0.8)
+}
