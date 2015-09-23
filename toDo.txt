@@ -1,0 +1,5 @@
+Current Tasks being worked on:
+
+-Fixing it so if you leave the webpage, you will automatically be disconnected from your spot in the draft
+-Exporting logs of drafts to file for statistical purposes
+-Guardian pick
