@@ -3,4 +3,4 @@ Current Tasks being worked on:
 -Fixing it so if you leave the webpage, you will automatically be disconnected from your spot in the draft
 -Exporting logs of drafts to file for statistical purposes
 -Guardian pick
--Enforced Timer - Written in main.js, needs to also be changed for server?
+-Enforced Timer - Works if someone is on the team, but does not work if no one is on the team
