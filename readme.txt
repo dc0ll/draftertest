@@ -1,2 +1,2 @@
 Readme for file
-Will include
+Will include info about the program
