@@ -1,3 +1,4 @@
+
 'use strict';
 
 var express = require('express');
@@ -13,6 +14,7 @@ debug('booting %s', 'Test App');
 var drafts = [];
 var HEROES = {
   Aisling: 'Aisling',
+	Beckett: 'Beckett',
   Charnok: 'Charnok',
   Griselma: 'Griselma',
   HK: 'HK',
